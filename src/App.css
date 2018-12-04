@@ -1,32 +1,81 @@
 .App {
   text-align: center;
 }
+ .App #map{
+   height: 100vh;
+ }
+ #search{
+   position: absolute;
+   top: 5px;
+   left: 0;
+   right: 0;
+   margin: auto;
+   z-index: 2;
+   text-align: center;
+ }
+ #cards{
+   z-index: 3;
+   text-align: center;
+ }
+ .cardList{
+   position: absolute;
+   top: 50px;
+   left: 0;
+   right: 0;
+   width: 20%;
+   border: 1px solid #274;
+   list-style-type: none;
+   padding: 2px;
+   margin: 2px;
+   background-color: #544;
+   color: #fff;
+ }
+ button{
+  position: absolute;
+  top: 55px;
+  left: 5px;
+  background-color: #fff;
+  color: #00f;
+  font-size: 18px;
+ }
+ #menu-hidden{
+     transform: translate3d(-12em, 0, 0);
+     transition: transform 0.2s;
+ }
+ #card{
+   text-align: center;
+   display: inline;
+   margin: 0;
+   padding: 1px;
+   overflow-wrap: break-word;
+ }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+ a {
+   display: block;
+   text-decoration: none;
+   color: #fff;
+   border: 1px solid #fff;
+   box-shadow: 0 0 1px 1px #fff;
+   margin: 0 2px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ }
+ img{
+   display: block;
+ }
+ p{
+   margin: 0;
+   padding: 0;
+ }
+ #card h4{
+   padding: 0;
+   margin: 0;
+ }
+#searchField{
+  min-width: 300px;
+  height: 36px;
+  border-radius: 5px;
+  box-shadow:  0 0 0 1px #00f;
+  border: 2px solid #009;
+  font-size: 24px;
+  padding: 5px 5px;
 }

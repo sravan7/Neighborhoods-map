@@ -1,16 +1,24 @@
+> # Udacity Front-End Nano Degree - Neighborhood Map
+
+*This project is build as per the Udacity Project Rubric and as part of Udacity Front-End Nanodegree*
+## Functionality
+* User has to give the location permission to render the map and other parts of UI.
+* After the user search of favorite place or food
+* Map will render with top -10 locations found for the given search
+* on Clicking the marker location name is shown on the Info Window
+* on Clicking of Top left side menu Floating button user can see search results in list view with distance from user location.
+* on Clicking of specific place InfoWindow will opened the Map to highlight the click  
+* on change of the search user can see different results    
+
+<br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
+### Available Scripts
 In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -37,8 +45,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Attributions
+FOURSQUARE
+
+[foursquare](https://developer.foursquare.com/) API was used in this project to fetch user interest.
