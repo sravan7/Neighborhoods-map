@@ -23,9 +23,11 @@ initMap = () =>{
 }
 buildMap =() => {
   const google = window.google;
+  const here = this;
   let bounds = new google.maps.LatLngBounds()
   const Infowindow = new google.maps.InfoWindow();
   let map= new google.maps.Map(document.getElementById('map'), {
+    center: {lat: here.currentLocation[0].lat , lng: here.currentLocation[0].lng},
     mapTypeControl: true,
           mapTypeControlOptions: {
               style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
@@ -39,6 +41,8 @@ buildMap =() => {
             position: google.maps.ControlPosition.RIGHT_CENTER
           },
   })
+  const iconURL = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" ;
+  marker({location:{lat: here.currentLocation[0].lat, lng: here.currentLocation[0].lng, id: "1"}, name:"your location"},iconURL)
   function showWindow(marker){
     if (Infowindow.marker !== marker) {
       //console.log("called")
@@ -53,7 +57,7 @@ buildMap =() => {
       });
     }
   }
- function  marker (one){
+ function  marker (one,icon=""){
    //console.log(one);
      //console.log(here.state.query[0].location.lat,typeof(here.state.query[0]) );
 
@@ -63,6 +67,9 @@ buildMap =() => {
        position: {lat: one.location.lat, lng: one.location.lng},
        map: map,
        title: one.name,
+       icon : {
+         url : icon
+       },
        animation: google.maps.Animation.DROP,
        id: one.location.id
      })
@@ -91,10 +98,6 @@ buildMap =() => {
 
 componentDidMount(){
   this.initMap();
-  if(this.state.mapIsReady) {
-    //console.log("map is ready");
-    this.buildMap()
-  }
 }
 componentDidUpdate(){
   let lat= null;
@@ -107,7 +110,10 @@ componentDidUpdate(){
        //console.log("sravanf");
        here.currentLocation.push({lat: lat, lng: lng})
        //here.currentLocation.push(pos)
-      here.buildMap()
+       if(here.state.mapIsReady) {
+         //console.log("map is ready");
+         here.buildMap()
+       }
        //here.getData();
     }, function(error) { document.alert("location not supported")})
     //console.log(pos.lat);
