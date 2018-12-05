@@ -134,7 +134,6 @@ justCall(event){
   this.buildMap()(event.currentTarget.dataset.id)
 }
 render() {
-
     return (
       <div className="App">
         {
