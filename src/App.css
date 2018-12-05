@@ -49,8 +49,7 @@
    padding: 1px;
    overflow-wrap: break-word;
  }
-
- a {
+ a{
    display: block;
    text-decoration: none;
    color: #fff;
@@ -58,6 +57,9 @@
    box-shadow: 0 0 1px 1px #fff;
    margin: 0 2px;
 
+ }
+ a:hover{
+   border: 3px solid #00f;
  }
  img{
    display: block;
@@ -74,8 +76,11 @@
   min-width: 300px;
   height: 36px;
   border-radius: 5px;
-  box-shadow:  0 0 0 1px #00f;
-  border: 2px solid #009;
+  box-shadow:  0 0 0 1px #000;
+  border: 2px solid #0f0;
   font-size: 24px;
   padding: 5px 5px;
+}
+#searchField:hover{
+    border: 3px solid #00f;
 }
