@@ -156,7 +156,7 @@ render() {
         <div id="search">
             <input id="searchField" type="text" placeholder="coffee or chicken or Newyork "  onKeyPress={(event)=>this.getData(event)} aria-label={"search field"} />
         </div>
-        <button onClick={this.handle.bind(this)} role="button" tabIndex={"0"} >&#9776;</button>
+        <button onClick={this.handle.bind(this)}  tabIndex={"0"} arira-label={"toggle list"} >&#9776;</button>
         <ul className="cardList" id={this.state.condition ? "menu-hidden" : ""} role="tablist" tabIndex={"0"} >
             {
               this.state.query.length>0 ?  this.state.query.map(data =>(<li id="card" key={String(data.id)} role="presentation" tabIndex={"-1"} >
