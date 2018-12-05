@@ -156,15 +156,14 @@ render() {
         <div id="search">
             <input id="searchField" type="text" placeholder="coffee or chicken or Newyork "  onKeyPress={(event)=>this.getData(event)} aria-label={"search field"} />
         </div>
-
-        <ul className="cardList" id={this.state.condition ? "menu-hidden" : ""} role="tablist" >
+        <button onClick={this.handle.bind(this)} role="button" tabIndex={"0"} >&#9776;</button>
+        <ul className="cardList" id={this.state.condition ? "menu-hidden" : ""} role="tablist" tabIndex={"0"} >
             {
               this.state.query.length>0 ?  this.state.query.map(data =>(<li id="card" key={String(data.id)} role="presentation" tabIndex={"-1"} >
             <a href="#" onClick={this.justCall.bind(this)} data-id={String(data.name)} role="tab" tabIndex={"0"}  > <h4>{String(data.name)}</h4> <p>Distance <span>{parseInt(parseInt(data.location.distance)*0.001)}Kms</span></p>
            </a> </li>)): <h5> Search something</h5>
             }
         </ul>
-        <button onClick={this.handle.bind(this)} role="button" >&#9776;</button>
       </div>
     );
   }
