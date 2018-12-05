@@ -160,7 +160,7 @@ render() {
         <ul className="cardList" id={this.state.condition ? "menu-hidden" : ""} role="tablist" >
             {
               this.state.query.length>0 ?  this.state.query.map(data =>(<li id="card" key={String(data.id)} role="presentation" >
-            <a href="#" onClick={this.justCall.bind(this)} data-id={String(data.name)} role="tab" > <h4>{String(data.name)}</h4> <p>Distance <span>{parseInt(parseInt(data.location.distance)*0.001)}Kms</span></p>
+            <a href="#" onClick={this.justCall.bind(this)} data-id={String(data.name)} role="tab" tabIndex={"0"} > <h4>{String(data.name)}</h4> <p>Distance <span>{parseInt(parseInt(data.location.distance)*0.001)}Kms</span></p>
            </a> </li>)): <h5> Search something</h5>
             }
         </ul>

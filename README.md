@@ -10,10 +10,16 @@
 * on Clicking of specific place InfoWindow will opened the Map to highlight the click  
 * on change of the search user can see different results    
 
+*Service worker in this project works only in the build version `npm build`*
 <br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ### Available Scripts
 In the project directory, you can run:
+
+### `npm install`
+
+Installs all the dependencies required for this app.
 
 ### `npm start`
 
