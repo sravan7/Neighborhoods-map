@@ -45,7 +45,6 @@ buildMap =() => {
   marker({location:{lat: here.currentLocation[0].lat, lng: here.currentLocation[0].lng, id: "1"}, name:"your location"},iconURL)
   function showWindow(marker){
     if (Infowindow.marker !== marker) {
-      //console.log("called")
       Infowindow.marker = marker;
       Infowindow.setContent('<div>' + marker.title + '</div>');
       Infowindow.open(map, marker);
@@ -58,9 +57,6 @@ buildMap =() => {
     }
   }
  function  marker (one,icon=""){
-   //console.log(one);
-     //console.log(here.state.query[0].location.lat,typeof(here.state.query[0]) );
-
      if(one) {
        map.setCenter(new google.maps.LatLng(one.location.lat, one.location.lng))
        let marker = new google.maps.Marker({
@@ -87,7 +83,6 @@ buildMap =() => {
     markers = this.state.query.map(marker)
   }
   function filterMarker(value) {
-    //console.log(value);
     if(markers.length>0) {
       markers.filter(marker => marker.title===value).map(showWindow)
       map.fitBounds(bounds);
@@ -107,26 +102,15 @@ componentDidUpdate(){
     navigator.geolocation.getCurrentPosition(function(position){
        lat = position.coords.latitude;
        lng = position.coords.longitude;
-       //console.log("sravanf");
        here.currentLocation.push({lat: lat, lng: lng})
-       //here.currentLocation.push(pos)
        if(here.state.mapIsReady) {
-         //console.log("map is ready");
          here.buildMap()
        }
-       //here.getData();
     }, function(error) { document.alert("location not supported")})
-    //console.log(pos.lat);
-    //console.log(pos);
 }
 }
 getData = (event) =>{
-  //console.log(event);
   if (event.key==="Enter"){
-    //this.setState({query:event.target.value})
-    //console.log(event.target.value);
-    //console.log(this.state.query);
-    //const query = event.target.value;
     const here = this
     const end_point = "https://api.foursquare.com/v2/venues/search"
     const client_id = "WVUL2XKHDR5KGZR1QUCEWPFCLX2MDEG3CMYGRB433X1YDT2J";
@@ -136,9 +120,6 @@ getData = (event) =>{
     fetch(`${end_point}?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&ll=${lat},${lng}&query=${event.target.value}`)
     .then(response => response.json()).then(sample).catch(e => document.alert(e+"error in fetching the data"))
     function sample(data) {
-      //console.log(JSON.stringify(data));
-      //data = JSON.stringify(data)
-      //console.log(data.response);
       here.setState({query: data.response.venues})
     }
   }
@@ -149,24 +130,24 @@ handle() {
   })
 }
 justCall(event){
-  //console.log(this,event.currentTarget.dataset.id,"just call");
+
   this.buildMap()(event.currentTarget.dataset.id)
 }
 render() {
-  //console.log( this.state.mapIsReady, this.currentLocation, this.state.query)
+
     return (
       <div className="App">
         {
           this.state.mapIsReady ? <Map/> : <h2>Cant able to load the map</h2>
         }
         <div id="search">
-            <input id="searchField" type="text" placeholder="coffee or chicken or Newyork "  onKeyPress={(event)=>this.getData(event)} aria-label={"search field"} />
+            <input id="searchField" type="text" placeholder="coffee or chicken or Newyork "  onKeyPress={(event)=>this.getData(event)} aria-label={"search field"} tabIndex={"1"} />
         </div>
-        <button onClick={this.handle.bind(this)}  tabIndex={"0"} arira-label={"toggle list"} >&#9776;</button>
-        <ul className="cardList" id={this.state.condition ? "menu-hidden" : ""} role="tablist" tabIndex={"0"} >
+        <button onClick={this.handle.bind(this)}  tabIndex={"1"} arira-label={"toggle list"} >&#9776;</button>
+        <ul className="cardList" id={this.state.condition ? "menu-hidden" : ""} role="tablist" >
             {
               this.state.query.length>0 ?  this.state.query.map(data =>(<li id="card" key={String(data.id)} role="presentation" tabIndex={"-1"} >
-            <a href="#" onClick={this.justCall.bind(this)} data-id={String(data.name)} role="tab" tabIndex={"0"}  > <h4>{String(data.name)}</h4> <p>Distance <span>{parseInt(parseInt(data.location.distance)*0.001)}Kms</span></p>
+            <a href="#" onClick={this.justCall.bind(this)} data-id={String(data.name)} role="tab" tabIndex={"1"}  > <h4>{String(data.name)}</h4> <p>Distance <span>{parseInt(parseInt(data.location.distance)*0.001)}Kms</span></p>
            </a> </li>)): <h5> Search something</h5>
             }
         </ul>
