@@ -106,11 +106,16 @@ componentDidUpdate(){
        if(here.state.mapIsReady) {
          here.buildMap()
        }
-    }, function(error) { document.alert("location not supported")})
+    }, function(error) {console.error(`(${error.code}): ${error.message}`);},
+    {
+      enableHighAccuracy: true,
+      maximumAge: 0
+    }
+  )
 }
 }
 getData = (event) =>{
-  if (event.key==="Enter"){
+  if (event.key==="Enter" && this.currentLocation.length>0){
     const here = this
     const end_point = "https://api.foursquare.com/v2/venues/search"
     const client_id = "WVUL2XKHDR5KGZR1QUCEWPFCLX2MDEG3CMYGRB433X1YDT2J";
